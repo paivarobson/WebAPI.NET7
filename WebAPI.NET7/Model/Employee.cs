@@ -18,5 +18,9 @@ namespace WebAPI.NET7.Model
             this.age = age;
             this.photo = photo;
         }
+
+        public Employee()
+        {
+        }
     }
 }

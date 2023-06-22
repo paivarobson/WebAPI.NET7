@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.NET7.Model;
 using WebAPI.NET7.ViewModel;
@@ -32,7 +33,7 @@ namespace WebAPI.NET7.Controllers
 
             return Ok();
         }
-
+        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
