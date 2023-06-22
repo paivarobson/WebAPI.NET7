@@ -40,5 +40,16 @@ namespace WebAPI.NET7.Controllers
 
             return Ok(employees);
         }
+
+        [HttpGet]
+        [Route("{id}/download")]
+        public IActionResult DownloadPhoto(int id)
+        {
+            var employees = _employeeRepository.Get(id);
+
+            var dataBytes = System.IO.File.ReadAllBytes(employees.photo);
+
+            return File(dataBytes, "image/png");
+        }
     }
 }

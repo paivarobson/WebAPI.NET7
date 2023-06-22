@@ -16,6 +16,11 @@ namespace WebAPI.NET7.Infrastructure
         {
             return _context.Employees.ToList();
         }
+
+        public Employee? Get(int id)
+        {
+            return _context.Employees.Find(id);
+        }
     }
 }
 
