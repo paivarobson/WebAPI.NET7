@@ -19,9 +19,14 @@ namespace WebAPI.NET7.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(EmployeeViewModel employeeView)
+        public IActionResult Add([FromForm] EmployeeViewModel employeeView)
         {
-            var employee = new Employee(employeeView.Name, employeeView.Age, null);
+            var filePath = Path.Combine("Storage", employeeView.Photo.FileName); // Cocatena o caminho da imagem com a pasta Storage dentro do projeto
+
+            using Stream fileStream = new FileStream(filePath, FileMode.Create); // Cria a imagem em memória
+            employeeView.Photo.CopyTo(fileStream); // Adiciona a imagem na pasta Storage 
+
+            var employee = new Employee(employeeView.Name, employeeView.Age, filePath);
 
             _employeeRepository.Add(employee);
 
