@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.NET7.Model;
@@ -13,10 +10,12 @@ namespace WebAPI.NET7.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly ILogger<EmployeeController> _logger;
 
-        public EmployeeController(IEmployeeRepository employeeRepository)
+        public EmployeeController(IEmployeeRepository employeeRepository, ILogger<EmployeeController> logger)
         {
             _employeeRepository = employeeRepository ?? throw new ArgumentNullException(nameof(employeeRepository));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpPost]
@@ -37,7 +36,13 @@ namespace WebAPI.NET7.Controllers
         [HttpGet]
         public IActionResult Get(int pageNumber, int pageQuantity)
         {
+            _logger.Log(LogLevel.Information, "Adicionando novo funcionário...");
+
+            throw new Exception("Error de teste");
+
             var employees = _employeeRepository.Get(pageNumber, pageQuantity);
+
+            _logger.LogInformation("Funcionário adicionado com sucesso");
 
             return Ok(employees);
         }
