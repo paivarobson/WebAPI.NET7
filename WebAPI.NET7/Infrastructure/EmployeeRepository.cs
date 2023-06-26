@@ -12,9 +12,9 @@ namespace WebAPI.NET7.Infrastructure
             _context.SaveChanges();
         }
 
-        List<Employee> IEmployeeRepository.Get()
+        List<Employee> IEmployeeRepository.Get(int pageNumber, int pageQuantity)
         {
-            return _context.Employees.ToList();
+            return _context.Employees.Skip(pageNumber * pageQuantity).Take(pageQuantity).ToList();
         }
 
         public Employee? Get(int id)
