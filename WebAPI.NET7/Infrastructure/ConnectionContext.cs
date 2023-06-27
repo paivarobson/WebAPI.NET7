@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebAPI.NET7.Model;
+using WebAPI.NET7.Domain.Model;
 
 namespace WebAPI.NET7.Infrastructure
 {

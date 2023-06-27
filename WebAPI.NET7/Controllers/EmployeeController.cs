@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI.NET7.Model;
+using WebAPI.NET7.Domain.Model;
 using WebAPI.NET7.ViewModel;
 
 namespace WebAPI.NET7.Controllers
@@ -37,8 +37,6 @@ namespace WebAPI.NET7.Controllers
         public IActionResult Get(int pageNumber, int pageQuantity)
         {
             _logger.Log(LogLevel.Information, "Adicionando novo funcionário...");
-
-            throw new Exception("Error de teste");
 
             var employees = _employeeRepository.Get(pageNumber, pageQuantity);
 

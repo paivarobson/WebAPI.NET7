@@ -2,9 +2,9 @@
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using WebAPI.NET7.Model;
+using WebAPI.NET7.Domain.Model;
 
-namespace WebAPI.NET7.Services
+namespace WebAPI.NET7.Application.Services
 {
     public class TokenService
     {

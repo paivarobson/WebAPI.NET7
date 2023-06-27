@@ -1,6 +1,6 @@
-﻿using WebAPI.NET7.Model;
+﻿using WebAPI.NET7.Domain.Model;
 
-namespace WebAPI.NET7.Infrastructure
+namespace WebAPI.NET7.Infrastructure.Repositories
 {
     public class EmployeeRepository : IEmployeeRepository
     {

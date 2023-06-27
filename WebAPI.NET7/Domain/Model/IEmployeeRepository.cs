@@ -1,5 +1,4 @@
-﻿using System;
-namespace WebAPI.NET7.Model
+﻿namespace WebAPI.NET7.Domain.Model
 {
     public interface IEmployeeRepository
     {

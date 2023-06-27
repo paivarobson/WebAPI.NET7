@@ -20,17 +20,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Model\" />
     <None Remove="Infrastructure\" />
-    <None Remove="ViewModel\" />
     <None Remove="Storage\" />
-    <None Remove="Services\" />
+    <None Remove="Domain\" />
+    <None Remove="Application\" />
+    <None Remove="Infrastructure\Repositories\" />
+    <None Remove="Domain\Model\" />
+    <None Remove="Application\Services\" />
+    <None Remove="Application\ViewModel\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="Infrastructure\" />
-    <Folder Include="ViewModel\" />
     <Folder Include="Storage\" />
-    <Folder Include="Services\" />
+    <Folder Include="Domain\" />
+    <Folder Include="Application\" />
+    <Folder Include="Infrastructure\Repositories\" />
+    <Folder Include="Domain\Model\" />
+    <Folder Include="Application\Services\" />
+    <Folder Include="Application\ViewModel\" />
   </ItemGroup>
 </Project>

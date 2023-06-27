@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI.NET7.Model;
-using WebAPI.NET7.Services;
+using WebAPI.NET7.Domain.Model;
+using WebAPI.NET7.Application.Services;
 
 namespace WebAPI.NET7.Controllers
 {
