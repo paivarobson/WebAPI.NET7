@@ -1,4 +1,5 @@
-﻿using WebAPI.NET7.Domain.Model;
+﻿using WebAPI.NET7.Domain.DTOs;
+using WebAPI.NET7.Domain.Model;
 
 namespace WebAPI.NET7.Infrastructure.Repositories
 {
@@ -12,9 +13,18 @@ namespace WebAPI.NET7.Infrastructure.Repositories
             _context.SaveChanges();
         }
 
-        List<Employee> IEmployeeRepository.Get(int pageNumber, int pageQuantity)
+        List<EmployeeDTO> IEmployeeRepository.Get(int pageNumber, int pageQuantity)
         {
-            return _context.Employees.Skip(pageNumber * pageQuantity).Take(pageQuantity).ToList();
+            return _context.Employees
+                .Skip(pageNumber * pageQuantity)
+                .Take(pageQuantity)
+                .Select(x =>
+                new EmployeeDTO()
+                {
+                    Id = x.id,
+                    NameEmployee = x.name,
+                    Photo = x.photo
+                }).ToList();
         }
 
         public Employee? Get(int id)
@@ -23,4 +33,3 @@ namespace WebAPI.NET7.Infrastructure.Repositories
         }
     }
 }
-

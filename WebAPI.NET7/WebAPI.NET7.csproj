@@ -28,6 +28,7 @@
     <None Remove="Domain\Model\" />
     <None Remove="Application\Services\" />
     <None Remove="Application\ViewModel\" />
+    <None Remove="Domain\DTOs\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\" />
@@ -38,5 +39,6 @@
     <Folder Include="Domain\Model\" />
     <Folder Include="Application\Services\" />
     <Folder Include="Application\ViewModel\" />
+    <Folder Include="Domain\DTOs\" />
   </ItemGroup>
 </Project>
