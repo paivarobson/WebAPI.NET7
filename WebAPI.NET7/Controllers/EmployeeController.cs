@@ -1,5 +1,7 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebAPI.NET7.Domain.DTOs;
 using WebAPI.NET7.Domain.Model;
 using WebAPI.NET7.ViewModel;
 
@@ -11,11 +13,13 @@ namespace WebAPI.NET7.Controllers
     {
         private readonly IEmployeeRepository _employeeRepository;
         private readonly ILogger<EmployeeController> _logger;
+        private readonly IMapper _mapper;
 
-        public EmployeeController(IEmployeeRepository employeeRepository, ILogger<EmployeeController> logger)
+        public EmployeeController(IEmployeeRepository employeeRepository, ILogger<EmployeeController> logger, IMapper mapper)
         {
             _employeeRepository = employeeRepository ?? throw new ArgumentNullException(nameof(employeeRepository));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         [HttpPost]
@@ -43,6 +47,17 @@ namespace WebAPI.NET7.Controllers
             _logger.LogInformation("Funcionário adicionado com sucesso");
 
             return Ok(employees);
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public IActionResult Search(int id)
+        {
+            var employees = _employeeRepository.Get(id);
+
+            var employeesDTOs = _mapper.Map<EmployeeDTO>(employees);
+
+            return Ok(employeesDTOs);
         }
 
         [HttpGet]
