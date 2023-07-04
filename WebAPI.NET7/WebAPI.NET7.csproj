@@ -19,6 +19,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.8" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +36,7 @@
     <None Remove="Application\ViewModel\" />
     <None Remove="Domain\DTOs\" />
     <None Remove="Application\Mapping\" />
+    <None Remove="Domain\Model\CompanyAggregate\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\" />
@@ -44,5 +49,6 @@
     <Folder Include="Application\ViewModel\" />
     <Folder Include="Domain\DTOs\" />
     <Folder Include="Application\Mapping\" />
+    <Folder Include="Domain\Model\CompanyAggregate\" />
   </ItemGroup>
 </Project>
